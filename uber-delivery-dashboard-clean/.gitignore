@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env/
+
+# macOS
+.DS_Store
+
+# PyCharm / IDE
+.idea/
+
+# Ignore data folder
+data/
+
