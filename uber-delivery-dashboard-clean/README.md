@@ -1,40 +1,38 @@
 # Uber – Delivery Time & ATD Dashboard
 
-This project is a full Streamlit dashboard built to analyze **Actual Time of Delivery (ATD)**, operational performance, and delivery patterns using historical Uber Eats data.  
-It was developed as part of a technical data case and demonstrates end-to-end ownership across:
+This project is a full Streamlit dashboard built to analyze Actual Time of Delivery (ATD), operational performance, and delivery patterns using weekly Uber delivery data.  
+It's developed as part of a technical  assessment that includes the next things:
 
 - Data preparation  
 - Feature engineering  
 - Exploratory visualization  
 - KPI design  
 - Predictive modeling (Random Forest)  
-- Dashboard architecture  
-- Clean code practices (modularization, Flake8 compliance)  
+- Dashboard 
+- Clean code practices 
 
----
 
-## 📌 Project Overview
 
-The purpose of this dashboard is to give Operations, Logistics, and Marketplace teams a clear way to:
+ Project Overview
+
+The purpose of this dashboard is to give stakeholders a clear way to:
 
 - Monitor delivery performance  
-- Understand the drivers behind high ATD  
+- Understand the drivers behind ATD  
 - Compare courier flows, territories, and restaurant surfaces  
-- Identify bottlenecks and opportunities for operational improvement  
-- Explore a predictive model that explains ATD variability  
+- Identify opportunities for operational improvement  
+- Explore a predictive model that explains and predict ATD   
 
 The dashboard is fully interactive and allows filtering by:
 
-- **Territory**
-- **Courier flow**
-- **Merchant surface**
-- **On-time threshold**
+- Territory
+- Courier flow**
+- Merchant surface
+- On-time threshold
 
----
+Dataset Description
 
-## 📊 Dataset Description
-
-The dashboard consumes the weekly dataset produced by the ETL pipeline. Each row represents a completed delivery trip and includes:
+The dashboard it's build to consume the weekly dataset produced by the workflow designes in the first deliverable. Each row represents a completed delivery trip and includes:
 
 | Column | Description |
 |-------|-------------|
@@ -48,7 +46,6 @@ The dashboard consumes the weekly dataset produced by the ETL pipeline. Each row
 | `dropoff_distance` | Distance restaurant → customer (km) |
 | `ATD` | Actual Time of Delivery (minutes) |
 | `order_final_state_timestamp_local` | Local delivery timestamp |
-| … | Additional operational metadata |
 
 Derived features:
 
@@ -57,31 +54,29 @@ Derived features:
 - `day_of_week`
 - `is_weekend`
 
----
 
-## 🖥️ Dashboard Features
+Dashboard Features
 
-### **1. High-level KPIs**
+1. High-level KPIs
 - Avg ATD  
 - P95 ATD  
 - On-time rate  
 - Avg pickup distance  
 - Avg dropoff distance  
 
-### **2. Visual Analytics**
-- **ATD distribution (histogram)**
-- **ATD by courier flow (boxplot)**
-- **ATD by territory (bar chart)**
-- **ATD vs total distance (scatterplot)**
+2. Visual Analytics
+-ATD distribution (histogram)
+- ATD by courier flow (boxplot)
+- ATD by territory (bar chart)
+- ATD vs total distance (scatterplot)
 
 All charts use an Uber-style theme:
 - Dark background (`#000000`)
 - White typography  
 - Uber green accents  
 
----
 
-## 🤖 Predictive Modeling (Random Forest)
+Predictive Modeling (Random Forest)
 
 The dashboard includes an optional machine learning module using:
 
@@ -91,12 +86,12 @@ The dashboard includes an optional machine learning module using:
 - `SimpleImputer`  
 - `StandardScaler`
 
-### **Model output includes:**
-#### 🔹 Performance:
+odel output includes:**
+Performance:
 - MAE (mean absolute error)
 - R² (variance explained)
 
-#### 🔹 Feature Importance:
+Feature Importance:
 Top drivers of ATD:
 
 - Dropoff distance  
@@ -106,12 +101,12 @@ Top drivers of ATD:
 - Courier flow  
 - Territory  
 
-#### 🔹 Partial Dependence Plots (PDPs)
+Partial Dependence Plots (PDPs)
 Explain how changes in each key feature impact ATD.
 
 ---
 
-## 🧠 Operational Insights (Business Value)
+Stakeholder Insights 
 
 This dashboard helps teams answer:
 
@@ -129,7 +124,7 @@ This can guide actions such as:
 - Adjusting ETA and pricing strategies  
 - Prioritizing operational interventions by territory  
 
-🔧 Setup Instructions
+Setup Instructions
 
 Follow these steps to install dependencies and launch the dashboard.
 
@@ -163,7 +158,7 @@ The dashboard will open automatically in your browser at:
 
 http://localhost:8501
 
-🔁 Reproducibility Notes
+Reproducibility Notes
 
 This project is designed to be fully reproducible by any reviewer:
 
@@ -175,7 +170,7 @@ No external APIs or credentials are required.
 
 All preprocessing is done inside the dashboard (no external ETL needed to run it).
 
-The dashboard uses only the included CSV file (data/delivery_weekly.csv).
+The dashboard uses only the  CSV file (data/delivery_weekly.csv), this file is not in the repo, so It has to be add manually.
 
 If reviewers want to test their own data, they simply need to replace the CSV file with one following the same schema.
 
@@ -186,8 +181,6 @@ uber-delivery-dashboard/
 ├── README.md                  # Project documentation
 ├── requirements.txt           # Python dependencies
 │
-├── data/
-│   └── delivery_weekly.csv    # Weekly dataset used by the dashboard
 │
 └── modules/
     ├── data_loader.py         # Loading functions
